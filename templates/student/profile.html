@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block page_title %}My Profile{% endblock %}
+{% block content %}
+<div class="section-heading"><div><span class="eyebrow">ACCOUNT</span><h1>My Profile</h1><p>View and update your contact details.</p></div></div>
+<form class="card form-card" method="POST" onsubmit="return validatePhone('phone')">
+    <div class="profile-head"><div class="big-avatar">{{ student["name"][0]|upper }}</div><div><h2>{{ student["name"] }}</h2><p>{{ student["student_id"] }} • {{ student["course"] or "Student" }}</p></div></div>
+    <div class="form-grid">
+        <div><label>Full Name</label><input value="{{ student['name'] }}" disabled></div>
+        <div><label>Student ID</label><input value="{{ student['student_id'] }}" disabled></div>
+        <div><label>Email</label><input value="{{ student['email'] }}" disabled></div>
+        <div><label>Mobile Number *</label><input name="phone" id="phone" value="{{ student['phone'] }}" maxlength="10" required></div>
+        <div><label>Course</label><input value="{{ student['course'] or '' }}" disabled></div>
+        <div><label>Year</label><input value="{{ student['year'] or '' }}" disabled></div>
+        <div class="full-span"><label>Address</label><textarea name="address" rows="4">{{ student['address'] or '' }}</textarea></div>
+    </div>
+    <button class="btn primary" type="submit">Save Changes</button>
+</form>
+{% endblock %}

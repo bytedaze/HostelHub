@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@layer components {
+	.form-input {
+		@apply mt-2 w-full rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-3 text-sm font-normal text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:bg-white focus:ring-4 focus:ring-amber-100;
+	}
+}
+
+@layer base {
+	button:not(:disabled) {
+		@apply transition active:scale-[0.99];
+	}
+}

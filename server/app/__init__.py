@@ -1,0 +1,1 @@
+"""Application package for the Hostel Management System API."""

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Leave Request{% endblock %}
+{% block page_title %}Leave Management{% endblock %}
+{% block content %}
+<div class="section-heading"><div><span class="eyebrow">LEAVE</span><h1>Leave Requests</h1><p>Apply for leave and track approval.</p></div></div>
+<div class="content-grid two">
+<div class="card"><div class="card-header"><div><h3>Apply for Leave</h3></div></div>
+<form method="POST" class="stack-form" onsubmit="return validateLeave()">
+<label>From Date *</label><input type="date" name="from_date" id="from_date" min="{{ today }}" required>
+<label>To Date *</label><input type="date" name="to_date" id="to_date" min="{{ today }}" required>
+<label>Reason *</label><textarea name="reason" minlength="5" rows="4" required></textarea>
+<label>Emergency Contact *</label><input name="emergency_contact" id="emergency_contact" maxlength="10" required>
+<button class="btn primary" type="submit">Submit Leave Request</button>
+</form></div>
+<div class="card"><div class="card-header"><div><h3>My Requests</h3></div></div>
+{% for l in leaves %}<div class="complaint-item"><div><strong>{{ l["from_date"] }} → {{ l["to_date"] }}</strong><p>{{ l["reason"] }}</p></div><span class="status {{ l["status"]|lower }}">{{ l["status"] }}</span></div>{% else %}<div class="empty">No leave requests.</div>{% endfor %}
+</div></div>
+{% endblock %}

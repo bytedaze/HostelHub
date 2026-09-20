@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Student Registration{% endblock %}
+{% block content %}
+<div class="form-page narrow">
+    <div class="section-heading">
+        <div><span class="eyebrow">STUDENT PORTAL</span><h1>Create your account</h1><p>Enter accurate details to register for hostel services.</p></div>
+        <a class="btn secondary" href="{{ url_for('login') }}">← Back to Login</a>
+    </div>
+    <form class="card form-card" method="POST" onsubmit="return validateRegistration()">
+        <div class="form-grid">
+            <div><label>Full Name *</label><input name="name" id="name" required></div>
+            <div><label>Student ID *</label><input name="student_id" id="student_id" placeholder="STU001" required></div>
+            <div><label>Email *</label><input type="email" name="email" id="reg_email" required></div>
+            <div><label>Mobile Number *</label><input name="phone" id="phone" maxlength="10" inputmode="numeric" required></div>
+            <div><label>Date of Birth</label><input type="date" name="dob"></div>
+            <div><label>Gender</label><select name="gender"><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+            <div><label>Course *</label><input name="course" placeholder="BCA" required></div>
+            <div><label>Year</label><select name="year"><option>FY</option><option>SY</option><option selected>TY</option></select></div>
+            <div class="full-span"><label>Address</label><textarea name="address" rows="3"></textarea></div>
+            <div><label>Password *</label><input type="password" name="password" id="reg_password" required></div>
+            <div><label>Confirm Password *</label><input type="password" name="confirm_password" id="reg_confirm" required></div>
+        </div>
+        <button class="btn primary big full" type="submit">Create Student Account</button>
+    </form>
+</div>
+{% endblock %}

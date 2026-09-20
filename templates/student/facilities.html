@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Facilities{% endblock %}
+{% block page_title %}Hostel Facilities{% endblock %}
+{% block content %}
+<div class="section-heading"><div><span class="eyebrow">HOSTEL SERVICES</span><h1>Facilities</h1><p>Check the current availability of hostel facilities.</p></div></div>
+<div class="facility-cards">
+{% for f in facilities %}<div class="facility-card card"><div class="facility-icon">{{ f["icon"] }}</div><div><h3>{{ f["name"] }}</h3><p>{{ f["description"] }}</p><span class="status {{ f["status"]|lower }}">{{ f["status"] }}</span></div></div>{% endfor %}
+</div>
+{% endblock %}

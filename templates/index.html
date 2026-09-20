@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <span class="badge">SMART HOSTEL MANAGEMENT SYSTEM</span>
+    <h1>Comfortable Living.<br>Simple Management.</h1>
+    <p>Manage students, rooms, fees, complaints, visitors, attendance and hostel facilities from one modern platform.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('login') }}">Login to Portal</a>
+      <a class="btn btn-light" href="{{ url_for('register') }}">Student Registration</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <h3>Everything in one place</h3>
+    <div class="quick-grid">
+      <div class="quick"><div class="icon">🛏️</div><b>Room Allocation</b><span>View and manage rooms</span></div>
+      <div class="quick"><div class="icon">💳</div><b>Fee Management</b><span>Track payments and dues</span></div>
+      <div class="quick"><div class="icon">📝</div><b>Complaints</b><span>Raise and resolve issues</span></div>
+      <div class="quick"><div class="icon">👥</div><b>Visitors</b><span>Maintain visitor records</span></div>
+      <div class="quick"><div class="icon">📅</div><b>Attendance</b><span>Monitor attendance</span></div>
+      <div class="quick"><div class="icon">📢</div><b>Notices</b><span>Important hostel updates</span></div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="footer">Hostel Management System • Student & Admin Portal</div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Complaints{% endblock %}
+{% block page_title %}Complaint Management{% endblock %}
+{% block content %}
+<div class="section-heading"><div><span class="eyebrow">SERVICE DESK</span><h1>My Complaints</h1><p>Report and track hostel issues.</p></div></div>
+<div class="content-grid two">
+<div class="card"><div class="card-header"><div><h3>Raise a New Complaint</h3><p>Tell us what needs attention.</p></div></div>
+<form method="POST" class="stack-form">
+<label>Subject *</label><input name="subject" minlength="3" required placeholder="e.g. Wi-Fi not working">
+<label>Category *</label><select name="category" required><option value="">Select category</option><option>Wi-Fi</option><option>Room Cleaning</option><option>Electricity</option><option>Water</option><option>Maintenance</option><option>Other</option></select>
+<label>Priority</label><select name="priority"><option>Low</option><option selected>Medium</option><option>High</option></select>
+<label>Description *</label><textarea name="description" minlength="10" rows="5" required placeholder="Describe the issue..."></textarea>
+<button class="btn primary" type="submit">Submit Complaint</button>
+</form></div>
+<div class="card"><div class="card-header"><div><h3>Complaint History</h3></div></div>
+{% for c in complaints %}<div class="complaint-item"><div><strong>#{{ "%03d"|format(c["id"]) }} {{ c["subject"] }}</strong><p>{{ c["category"] }} • {{ c["priority"] }} • {{ c["created_at"][:10] }}</p></div><span class="status {{ c["status"]|lower|replace(' ','-') }}">{{ c["status"] }}</span></div>{% else %}<div class="empty">No complaints submitted.</div>{% endfor %}
+</div></div>
+{% endblock %}
