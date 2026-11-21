@@ -1,97 +1,101 @@
-# HostelHub
+# HostelHub – Smart Hostel Management System
 
-A complete beginner-friendly HostelHub built with:
+HostelHub is a full-stack web application that helps a hostel manage rooms, fees, complaints and visitors. It has two portals: one for the **admin** and one for **students**.
 
-- Python Flask
-- SQLite database
-- HTML/CSS/JavaScript
-- Jinja2 templates
-- Chart.js for dashboard analytics
-- Werkzeug password hashing
+## Screenshots
 
-## Included modules
+| Home | Register | Login |
+|---|---|---|
+| ![Home](screenshots/01-home.png) | ![Register](screenshots/02-register.png) | ![Login](screenshots/03-login.png) |
 
-### Student
-1. Registration/Login
-2. Dashboard
-3. Profile
-4. Room Details
-5. Fee Management
-6. Complaint Management
-7. Visitor Management
-8. Attendance
-9. Hostel Facilities
-10. Leave Requests
-11. Notices
+### Admin portal
 
-### Admin
-1. Dashboard
-2. Student Management
-3. Room Management + allocation
-4. Fee Management + payment recording
-5. Complaint Management
-6. Visitor Management
-7. Attendance Management
-8. Facility Management
-9. Leave Management
-10. Notice Management
-11. Reports
+| Dashboard | Rooms |
+|---|---|
+| ![Admin dashboard](screenshots/04-admin-dashboard.png) | ![Rooms](screenshots/05-admin-rooms.png) |
 
-## Requirements
+| Fees | Complaints | Visitors |
+|---|---|---|
+| ![Fees](screenshots/06-admin-fees.png) | ![Complaints](screenshots/07-admin-complaints.png) | ![Visitors](screenshots/08-admin-visitors.png) |
 
-Python 3.10+ recommended.
+### Student portal
 
-## Installation
+| Dashboard | My Room | My Fees |
+|---|---|---|
+| ![Student dashboard](screenshots/09-student-dashboard.png) | ![My room](screenshots/10-student-room.png) | ![My fees](screenshots/11-student-fees.png) |
 
-Open a terminal in this project folder.
+| My Complaints | My Visitors |
+|---|---|
+| ![My complaints](screenshots/12-student-complaints.png) | ![My visitors](screenshots/13-student-visitors.png) |
 
-### Windows
+## Features
 
-```text
+**Students**
+- Register and log in with form validation (strong password rules and a valid 10-digit phone number)
+- View their allocated room
+- Check fees and dues
+- Raise and track complaints
+- Manage their visitor log
+
+**Admin**
+- Create rooms and allocate or vacate rooms for students
+- Create fee records and mark fees as paid
+- View complaints and update their status (pending, in-progress, resolved)
+- View the visitor log and check visitors out
+- See each student's phone number alongside their records
+
+## Tech Stack
+
+| Part | Technology |
+|---|---|
+| Frontend | React (Vite), React Router, Axios, Tailwind CSS |
+| Backend | Python, FastAPI |
+| Database | MongoDB Atlas (via Motor) |
+| Security | JWT login tokens, bcrypt password hashing, role-based access (admin and student) |
+
+## Project Structure
+
+```
+HostelHub/
+├── client/        React frontend (pages, components, API setup)
+├── server/        FastAPI backend (server/app)
+├── screenshots/   Images used in this README
+└── LICENSE
+```
+
+## How to Run Locally
+
+You need Python, Node.js and a free MongoDB Atlas cluster.
+
+**1. Backend**
+```
 python -m venv venv
 venv\Scripts\activate
-pip install -r requirements.txt
-python app.py
+pip install -r server\requirements.txt
+cd server
+python -m uvicorn app.main:app --reload
 ```
+The backend runs at http://127.0.0.1:8000, and the API docs are at http://127.0.0.1:8000/docs.
 
-Then open:
+Create a `.env` file inside the `server` folder with your own MongoDB Atlas connection string and secret key. This file is private and is not included in this repository.
 
-http://127.0.0.1:5000
-
-## Demo admin login
-
-Email:
-admin@hostel.com
-
-Password:
-admin123
-
-## Student login
-
-Create a student account from:
-
-http://127.0.0.1:5000/register
-
-## Database
-
-The application automatically creates `hostel.db` the first time it runs. No separate database server is required.
-
-## Important
-
-Change `app.secret_key` in `app.py` before using this outside a local college project.
-
-## Reset database
-
-Stop Flask and delete:
-
-```text
-hostel.db
+**2. Frontend**
 ```
-
-Then run:
-
-```text
-python app.py
+cd client
+npm install
+npm run dev
 ```
+The frontend runs at http://localhost:5173.
 
-The database will be created again with demo rooms, facilities, notices and admin account.
+## Roles
+
+- The Register page creates **student** accounts.
+- The admin account is created directly in the database.
+
+## License
+
+All rights reserved. See the [LICENSE](LICENSE) file. This project is shared for viewing and evaluation only.
+
+## Author
+
+Siddhi More,Prajakta Ganage BBA Computer Applications (third year)
