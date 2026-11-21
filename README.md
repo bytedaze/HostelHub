@@ -1,4 +1,4 @@
-# Hostel Management System
+# HostelHub
 
 A complete beginner-friendly Hostel Management System built with:
 
