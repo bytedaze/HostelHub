@@ -20,6 +20,7 @@ class VisitorResponse(BaseModel):
     student_id: str
     student_name: str
     student_email: str
+    student_phone: str = ""
     visitor_name: str
     visitor_phone: str
     purpose: str

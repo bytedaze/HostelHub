@@ -38,6 +38,7 @@ def to_complaint_response(
         student_id=complaint_document["student_id"],
         student_name=student["name"],
         student_email=student["email"],
+        student_phone=student.get("phone") or "",
         category=complaint_document["category"],
         description=complaint_document["description"],
         status=complaint_document["status"],

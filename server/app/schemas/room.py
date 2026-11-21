@@ -51,6 +51,7 @@ class ActiveRoomAllocationResponse(BaseModel):
     student_id: str
     student_name: str
     student_email: str
+    student_phone: str = ""
     room_id: str
     room_number: str
     room_type: str

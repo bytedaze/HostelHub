@@ -20,6 +20,7 @@ class FeeResponse(BaseModel):
     student_id: str
     student_name: str
     student_email: str
+    student_phone: str = ""
     amount: float
     due_date: datetime
     paid_status: str

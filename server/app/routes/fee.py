@@ -49,6 +49,7 @@ def to_fee_response(
         student_id=fee_document["student_id"],
         student_name=student["name"],
         student_email=student["email"],
+        student_phone=student.get("phone") or "",
         amount=fee_document["amount"],
         due_date=fee_document["due_date"],
         paid_status=fee_document["paid_status"],

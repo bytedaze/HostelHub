@@ -104,6 +104,7 @@ async def list_active_allocations(
                 student_id=allocation["student_id"],
                 student_name=student["name"],
                 student_email=student["email"],
+                student_phone=student.get("phone") or "",
                 room_id=str(allocation["room_id"]),
                 room_number=room["room_number"],
                 room_type=room["room_type"],

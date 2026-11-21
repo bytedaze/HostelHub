@@ -34,6 +34,7 @@ def to_visitor_response(
         student_id=visitor_document["student_id"],
         student_name=student["name"],
         student_email=student["email"],
+        student_phone=student.get("phone") or "",
         visitor_name=visitor_document["visitor_name"],
         visitor_phone=visitor_document["visitor_phone"],
         purpose=visitor_document["purpose"],

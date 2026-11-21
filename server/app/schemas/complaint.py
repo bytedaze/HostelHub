@@ -19,6 +19,7 @@ class ComplaintResponse(BaseModel):
     student_id: str
     student_name: str
     student_email: str
+    student_phone: str = ""
     category: str
     description: str
     status: str
