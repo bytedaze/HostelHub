@@ -157,23 +157,37 @@ export default function Register() {
     setIsSubmitting(true)
 
     try {
-      const registrationData = {
+    const registrationData = {
         name: formData.name,
         email: formData.email,
         password: formData.password,
         phone: formData.phone,
-      }
-      await axiosInstance.post('/auth/register', { ...registrationData, role: 'student' })
-      setMessage({ type: 'success', text: 'Account created successfully. Redirecting...' })
-      setTimeout(() => navigate('/login'), 900)
-    } catch (error) {
-      setMessage({
+    };
+
+    await axiosInstance.post('/auth/register', {
+        ...registrationData,
+        role: 'student'
+    });
+
+    setMessage({
+        type: 'success',
+        text: 'Account created successfully. Redirecting...'
+    });
+
+    setTimeout(() => navigate('/login'), 900);
+
+} catch (error) {
+
+    console.log("Registration Error:", error.response?.data || error.message);
+
+    setMessage({
         type: 'error',
         text: error.response?.data?.detail || 'Registration failed. Please try again.',
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
+    });
+
+} finally {
+    setIsSubmitting(false);
+}
   }
 
   return (
@@ -264,7 +278,7 @@ export default function Register() {
                 placeholder="Re-enter your password"
               />
               {fieldErrors.confirmPassword && (
- a                <span className="mt-1 block text-xs font-medium text-rose-600">{fieldErrors.confirmPassword}</span>
+                <span className="mt-1 block text-xs font-medium text-rose-600">{fieldErrors.confirmPassword}</span>
               )}
             </label>
             <div className="grid gap-4 sm:grid-cols-2">
