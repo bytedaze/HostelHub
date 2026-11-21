@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block title %}Facility Management{% endblock %}
-{% block page_title %}Facility Management{% endblock %}
-{% block content %}
-<div class="section-heading"><div><span class="eyebrow">HOSTEL SERVICES</span><h1>Facilities</h1><p>Update the availability status of hostel facilities.</p></div></div>
-<div class="facility-cards">
-{% for f in facilities %}<div class="facility-card card"><div class="facility-icon">{{ f["icon"] }}</div><div class="grow"><h3>{{ f["name"] }}</h3><p>{{ f["description"] }}</p><form method="POST" class="inline-form"><input type="hidden" name="facility_id" value="{{ f['id'] }}"><select name="status" onchange="this.form.submit()"><option {% if f['status']=='Available' %}selected{% endif %}>Available</option><option {% if f['status']=='Maintenance' %}selected{% endif %}>Maintenance</option><option {% if f['status']=='Unavailable' %}selected{% endif %}>Unavailable</option></select></form></div></div>{% endfor %}
-</div>
-{% endblock %}

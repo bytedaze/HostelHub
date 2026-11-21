@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block title %}Visitor Management{% endblock %}
-{% block page_title %}Visitor Management{% endblock %}
-{% block content %}
-<div class="section-heading"><div><span class="eyebrow">VISITOR ACCESS</span><h1>Visitor Requests</h1><p>Approve or reject student visitor requests.</p></div></div>
-<div class="card"><div class="table-wrap"><table><thead><tr><th>Visitor</th><th>Student</th><th>Mobile</th><th>Purpose</th><th>Date/Time</th><th>Status</th></tr></thead><tbody>
-{% for v in visitors %}<tr><td><strong>{{ v["name"] }}</strong><small>{{ v["relation"] or "—" }}</small></td><td>{{ v["student_id"] }}<small>{{ v["student_name"] }}</small></td><td>{{ v["mobile"] }}</td><td>{{ v["purpose"] }}</td><td>{{ v["visit_date"] }}<small>{{ v["visit_time"] }}</small></td><td><form method="POST" action="{{ url_for('admin_visitor_status', visitor_id=v['id']) }}"><select name="status" onchange="this.form.submit()" class="inline-select"><option {% if v['status']=='Pending' %}selected{% endif %}>Pending</option><option {% if v['status']=='Approved' %}selected{% endif %}>Approved</option><option {% if v['status']=='Rejected' %}selected{% endif %}>Rejected</option></select></form></td></tr>{% else %}<tr><td colspan="6" class="empty">No visitor requests.</td></tr>{% endfor %}
-</tbody></table></div></div>
-{% endblock %}
