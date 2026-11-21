@@ -1,6 +1,6 @@
 # HostelHub
 
-A complete beginner-friendly Hostel Management System built with:
+A complete beginner-friendly HostelHub built with:
 
 - Python Flask
 - SQLite database

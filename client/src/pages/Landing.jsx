@@ -12,12 +12,12 @@ export default function Landing() {
   return (
     <main>
       <section className="relative isolate flex min-h-[calc(100vh-73px)] items-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1560185127-6a8c0f2f8c3d?auto=format&fit=crop&w=1800&q=85" alt="HostelHub – Smart Hostel Management System" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1560185127-6a8c0f2f8c3d?auto=format&fit=crop&w=1800&q=85" alt="HostelHub – Smart Hostel Management  System" className="absolute inset-0 -z-20 h-full w-full object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/85 via-slate-900/60 to-slate-900/25" />
         <div className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 lg:py-28">
           <div className="max-w-2xl text-white">
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-amber-200">One calm place for hostel life</p>
-            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">HostelHub – Smart Hostel Management System</h1>
+            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">HostelHub – Smart Hostel Management  System</h1>
             <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 sm:text-lg">Make everyday hostel operations simpler, clearer, and more connected for students and administrators.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link to="/login" className="inline-flex items-center justify-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-slate-950/30 transition hover:bg-amber-400">Login <ArrowRight size={17} /></Link>

@@ -104,7 +104,7 @@ export default function Login() {
 
   return (
     <main className="relative isolate flex min-h-screen min-w-0 flex-col items-center justify-start overflow-hidden px-4 pb-12 pt-16 sm:px-8 sm:pt-20">
-      <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1600&q=85" alt="HostelHub – Smart Hostel Management System" className="absolute inset-0 -z-20 h-full w-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1600&q=85" alt="HostelHub – Smart Hostel Management  System" className="absolute inset-0 -z-20 h-full w-full object-cover" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-slate-950/90 via-slate-900/70 to-slate-950/55" />
       <h1 className="relative z-10 max-w-3xl text-center text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">HostelHub</h1>
       <section className="relative z-10 mt-8 w-full max-w-md rounded-xl border border-white/60 bg-white/95 p-8 shadow-xl shadow-slate-950/30 backdrop-blur-sm sm:mt-10 sm:p-10">

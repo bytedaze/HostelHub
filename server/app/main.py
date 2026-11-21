@@ -10,7 +10,7 @@ from app.routes.room import router as room_router
 from app.routes.user import router as user_router
 from app.routes.visitor import router as visitor_router
 
-app = FastAPI(title="Hostel Management System API")
+app = FastAPI(title="HostelHub API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -32,4 +32,4 @@ app.include_router(visitor_router)
 async def health_check() -> dict[str, str]:
     """Confirm that the API is running."""
 
-    return {"status": "Hostel Management System API running"}
+    return {"status": "HostelHub API running"}
