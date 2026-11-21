@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block title %}Leave Management{% endblock %}
-{% block page_title %}Leave Management{% endblock %}
-{% block content %}
-<div class="section-heading"><div><span class="eyebrow">LEAVE REQUESTS</span><h1>Leave Management</h1><p>Review and process student leave requests.</p></div></div>
-<div class="card"><div class="table-wrap"><table><thead><tr><th>Student</th><th>From</th><th>To</th><th>Reason</th><th>Emergency Contact</th><th>Status</th></tr></thead><tbody>
-{% for l in leaves %}<tr><td><strong>{{ l["student_id"] }}</strong><small>{{ l["name"] }}</small></td><td>{{ l["from_date"] }}</td><td>{{ l["to_date"] }}</td><td>{{ l["reason"] }}</td><td>{{ l["emergency_contact"] }}</td><td><form method="POST" action="{{ url_for('admin_leave_status', leave_id=l['id']) }}"><select name="status" onchange="this.form.submit()" class="inline-select"><option {% if l['status']=='Pending' %}selected{% endif %}>Pending</option><option {% if l['status']=='Approved' %}selected{% endif %}>Approved</option><option {% if l['status']=='Rejected' %}selected{% endif %}>Rejected</option></select></form></td></tr>{% else %}<tr><td colspan="6" class="empty">No leave requests.</td></tr>{% endfor %}
-</tbody></table></div></div>
-{% endblock %}

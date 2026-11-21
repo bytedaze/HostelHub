@@ -1,5 +1,14 @@
 function toggleSidebar(){document.getElementById('sidebar')?.classList.toggle('open')}
-function togglePassword(id){const e=document.getElementById(id); if(e)e.type=e.type==='password'?'text':'password'}
+function togglePassword(id,button){
+  const input=document.getElementById(id); if(!input)return;
+  input.type=input.type==='password'?'text':'password';
+  if(button){
+    const isVisible=input.type==='text';
+    button.setAttribute('aria-label',isVisible?'Hide password':'Show password');
+    button.querySelector('[data-eye-icon]').hidden=isVisible;
+    button.querySelector('[data-eye-off-icon]').hidden=!isVisible;
+  }
+}
 function openModal(id){document.getElementById(id)?.classList.add('open')}
 function closeModal(id){document.getElementById(id)?.classList.remove('open')}
 function confirmDelete(item){return confirm('Are you sure you want to delete '+item+'? This action cannot be undone.')}

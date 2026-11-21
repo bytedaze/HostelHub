@@ -1,9 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 
-export default function Navbar() {
+export default function Navbar({ showLogout = true }) {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const shouldShowLogout = showLogout && user
 
   function handleLogout() {
     logout()
@@ -18,11 +19,11 @@ export default function Navbar() {
             HM
           </span>
           <span className="truncate text-sm font-bold tracking-tight sm:text-base">
-            Hostel Management System
+            HostelHub
           </span>
         </Link>
 
-        {user && (
+        {shouldShowLogout && (
           <button
             type="button"
             onClick={handleLogout}

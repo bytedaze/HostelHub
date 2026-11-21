@@ -20,7 +20,10 @@
             <label>Password</label>
             <div class="password-field">
                 <input id="password" type="password" name="password" placeholder="Enter password" required>
-                <button type="button" onclick="togglePassword('password')">👁</button>
+                <button type="button" aria-label="Show password" onclick="togglePassword('password', this)">
+                    <svg data-eye-icon viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg data-eye-off-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a16.7 16.7 0 0 1-4 4.8M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7a10.8 10.8 0 0 0 3-.4"/></svg>
+                </button>
             </div>
             <button class="btn primary full" type="submit">Login</button>
             <div class="login-help">

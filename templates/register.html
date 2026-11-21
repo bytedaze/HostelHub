@@ -17,8 +17,20 @@
             <div><label>Course *</label><input name="course" placeholder="BCA" required></div>
             <div><label>Year</label><select name="year"><option>FY</option><option>SY</option><option selected>TY</option></select></div>
             <div class="full-span"><label>Address</label><textarea name="address" rows="3"></textarea></div>
-            <div><label>Password *</label><input type="password" name="password" id="reg_password" required></div>
-            <div><label>Confirm Password *</label><input type="password" name="confirm_password" id="reg_confirm" required></div>
+            <div><label>Password *</label><div class="password-field">
+                <input type="password" name="password" id="reg_password" required>
+                <button type="button" aria-label="Show password" onclick="togglePassword('reg_password', this)">
+                    <svg data-eye-icon viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg data-eye-off-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a16.7 16.7 0 0 1-4 4.8M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7a10.8 10.8 0 0 0 3-.4"/></svg>
+                </button>
+            </div></div>
+            <div><label>Confirm Password *</label><div class="password-field">
+                <input type="password" name="confirm_password" id="reg_confirm" required>
+                <button type="button" aria-label="Show password" onclick="togglePassword('reg_confirm', this)">
+                    <svg data-eye-icon viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <svg data-eye-off-icon viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a16.7 16.7 0 0 1-4 4.8M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7a10.8 10.8 0 0 0 3-.4"/></svg>
+                </button>
+            </div></div>
         </div>
         <button class="btn primary big full" type="submit">Create Student Account</button>
     </form>

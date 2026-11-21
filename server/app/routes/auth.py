@@ -5,7 +5,12 @@ from fastapi import APIRouter, HTTPException, status
 from app.database import db
 from app.models.user import User
 from app.schemas.user import AuthResponse, UserLogin, UserRegister, UserResponse
-from app.utils.security import create_access_token, hash_password, verify_password
+from app.utils.security import (
+    create_access_token,
+    hash_password,
+    is_password_valid,
+    verify_password,
+)
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 users_collection = db["users"]
@@ -26,6 +31,12 @@ def to_user_response(user_document: dict) -> UserResponse:
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 async def register(user_data: UserRegister) -> UserResponse:
     """Register a user after confirming that their email is available."""
+
+    if not is_password_valid(user_data.password):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Password does not meet the required rules.",
+        )
 
     if await users_collection.find_one({"email": user_data.email}):
         raise HTTPException(status_code=400, detail="Email is already registered")

@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 hostel.db
 .env
+
+venv/
+node_modules/
+hostel.db
+.env

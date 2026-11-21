@@ -1,12 +1,22 @@
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import { House } from 'lucide-react'
 import Navbar from './components/Navbar'
+import AdminLayout from './components/AdminLayout'
+import StudentLayout from './components/StudentLayout'
 import { AuthProvider } from './context/AuthContext'
 import { useAuth } from './context/useAuth'
 import AdminDashboard from './pages/AdminDashboard'
+import ComplaintManagement from './pages/admin/ComplaintManagement'
+import FeeManagement from './pages/admin/FeeManagement'
+import RoomManagement from './pages/admin/RoomManagement'
+import VisitorManagement from './pages/admin/VisitorManagement'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import StudentDashboard from './pages/StudentDashboard'
+import MyComplaints from './pages/student/MyComplaints'
+import MyFees from './pages/student/MyFees'
+import MyRoom from './pages/student/MyRoom'
+import MyVisitors from './pages/student/MyVisitors'
 import Landing from './pages/Landing'
 
 function NotFound() {
@@ -36,16 +46,30 @@ function NavigateButton({ destination, label }) {
 function AppContent() {
 	const { pathname } = useLocation()
 	const isAuthPage = pathname === '/login' || pathname === '/register'
+	const isStudentArea = pathname.startsWith('/student-dashboard')
+	const isAdminArea = pathname.startsWith('/admin-dashboard')
 
 	return (
 		<div className="min-h-screen bg-slate-50 text-slate-900">
-			{!isAuthPage && <Navbar />}
+			{!isAuthPage && !isStudentArea && !isAdminArea && <Navbar showLogout={pathname !== '/'} />}
 			<Routes>
 				<Route path="/" element={<Landing />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route path="/student-dashboard" element={<StudentDashboard />} />
-				<Route path="/admin-dashboard" element={<AdminDashboard />} />
+				<Route path="/student-dashboard" element={<StudentLayout />}>
+					<Route index element={<StudentDashboard />} />
+					<Route path="room" element={<MyRoom />} />
+					<Route path="fees" element={<MyFees />} />
+					<Route path="complaints" element={<MyComplaints />} />
+					<Route path="visitors" element={<MyVisitors />} />
+				</Route>
+				<Route path="/admin-dashboard" element={<AdminLayout />}>
+					<Route index element={<AdminDashboard />} />
+					<Route path="rooms" element={<RoomManagement />} />
+					<Route path="fees" element={<FeeManagement />} />
+					<Route path="complaints" element={<ComplaintManagement />} />
+					<Route path="visitors" element={<VisitorManagement />} />
+				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>

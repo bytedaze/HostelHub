@@ -1,6 +1,7 @@
 """Password hashing and JWT helpers."""
 
 import os
+import re
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
@@ -23,6 +24,21 @@ if not jwt_secret:
 password_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 security = HTTPBearer()
 users_collection = db["users"]
+
+MIN_PASSWORD_LENGTH = 8
+ALLOWED_SPECIAL_CHARACTERS = "!@#$%^"
+
+
+def is_password_valid(password: str) -> bool:
+    """Check registration rules without including the supplied password in errors."""
+
+    return (
+        len(password) >= MIN_PASSWORD_LENGTH
+        and re.search(r"[a-z]", password) is not None
+        and re.search(r"[A-Z]", password) is not None
+        and re.search(r"\d", password) is not None
+        and re.fullmatch(r"[A-Za-z0-9!@#$%^]+", password) is not None
+    )
 
 
 def hash_password(password: str) -> str:

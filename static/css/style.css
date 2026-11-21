@@ -454,6 +454,54 @@ a {
     border-color: var(--primary);
 }
 
+.password-field {
+    position: relative;
+}
+
+div.password-field input {
+    padding-right: 44px;
+}
+
+.password-field button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    padding: 4px;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #6b7280;
+    cursor: pointer;
+}
+
+.password-field button:hover {
+    color: var(--dark);
+}
+
+.password-field button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.password-field button svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2;
+}
+
+.password-field button svg[hidden] {
+    display: none;
+}
+
 /* =========================
    BUTTONS
 ========================= */
