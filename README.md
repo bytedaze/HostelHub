@@ -95,7 +95,7 @@ The frontend runs at http://localhost:5173.
 ## License
 
 All rights reserved. See the [LICENSE](LICENSE) file. This project is shared for viewing and evaluation only.
+## Authors
 
-## Author
-
-Siddhi More,Prajakta Ganage BBA Computer Applications (third year)
+- Siddhi More, BBA Computer Applications (third year)
+- Prajakta Ganage, BBA Computer Applications (third year)
